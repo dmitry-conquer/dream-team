@@ -15,11 +15,16 @@ export default {
     screens: {
       sm: "575px",
       md: "768px",
-      lg: "1024px",
-      xl: "1200px",
+      lg: "992px",
+      xl: "1110px",
     },
     colors: {
-      primary: "#5D5DFF",
+      primary: {
+        DEFAULT: "#5D5DFF",
+        dark: "#4B4ACF",
+      },
+      dark: "#151719",
+      white: "#fff",
       gray: {
         100: "#d9e3ea",
         200: "#9BA9B4",

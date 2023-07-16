@@ -1,11 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;600;700;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-   body {
-      @apply font-arch
-   }
+  html {
+    @apply scroll-smooth scroll-p-36;
+  }
+  body {
+    @apply bg-dark font-inter text-base leading-tight text-gray-200;
+  }
+  h1 {
+    @apply text-center text-3xl font-extrabold leading-tight text-gray-100 lg:text-4xl;
+  }
+  h2 {
+    @apply text-xl font-extrabold leading-tight text-gray-100 sm:text-2xl md:text-2xl lg:text-3xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-sm  font-medium leading-normal  shadow-sm transition;
+    &.btn-primary {
+      @apply bg-primary  text-white hover:bg-primary/50;
+    }
+    &.btn-muted {
+      @apply bg-gray-300  text-gray-100 hover:bg-gray-300/70;
+    }
+    &.btn-white {
+      @apply bg-white  text-primary hover:bg-white/70;
+    }
+  }
+  .section-label {
+    @apply mb-8 flex w-full justify-center;
+    span {
+      @apply rounded-xl bg-[#C6F6D5] px-3 py-1 text-center text-sm text-[#36A269];
+    }
+  }
 }
