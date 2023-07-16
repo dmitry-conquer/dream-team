@@ -13,17 +13,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  runtimeConfig: {
-    public: {
-      strapi: {
-        url: "http://localhost:1332", // can be overridden by NUXT_PUBLIC_STRAPI_URL environment variable
-        prefix: "/api",
-        version: "v4",
-        cookie: {},
-        cookieName: "strapi_jwt",
-      },
-    },
-  },
   spaLoadingTemplate: false,
   devtools: { enabled: false },
   modules: ["@nuxtjs/tailwindcss", "nuxt-swiper", "@nuxtjs/strapi"],

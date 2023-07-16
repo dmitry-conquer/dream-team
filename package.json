@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/strapi": "^1.9.3",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.16.19",
     "nuxt": "^3.6.3",
