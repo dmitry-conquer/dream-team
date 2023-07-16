@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
   spaLoadingTemplate: false,
   devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-swiper", "@nuxtjs/strapi"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-swiper"],
 
   css: ["~/assets/style.scss"],
   postcss: {
