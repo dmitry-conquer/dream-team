@@ -5,41 +5,43 @@
       <h3 class="mb-2 text-xl font-semibold leading-normal text-gray-100">{{ f.title }}</h3>
       <p class="text-base leading-relaxed text-gray-200">{{ f.text }}</p>
     </div>
+    <button class="" @click="login" type="button">LOGIN</button>
+    <button class="" @click="out" type="button">OUT</button>
+    <pre>
+      {{ user }}
+    </pre>
   </div>
 </template>
 
 <script setup>
-const features = [
-  {
-    title: "Терміновість та якість",
-    text: "Ми розуміємо, наскільки важливим є час для наших клієнтів. Тому ми працюємо швидко і ефективно, забезпечуючи високу якість на кожному етапі розробки.",
-    image: "adv1.svg",
-  },
-  {
-    title: "Широкий спектр послуг",
-    text: "Ми пропонуємо повний спектр послуг зі створення інтернет-сторінок, включаючи веб-дизайн, фронтенд та бекенд розробку, UX/UI дизайн, розробку мобільних додатків та інші.",
-    image: "adv2.svg",
-  },
-  {
-    title: "Індивідуальний підхід",
-    text: "Ми розуміємо, що кожен клієнт та проект є унікальними. Ми готові пристосуватися до ваших потреб та вимог, надаючи гнучкі рішення та індивідуальний підхід до кожного проекту.",
-    image: "adv3.svg",
-  },
-  {
-    title: "Творчий підхід",
-    text: " Ми віримо в сили інновацій та творчості. Кожен проект, який ми розробляємо, відображає нашу унікальну візію та вміння думати нестандартно.",
-    image: "adv4.svg",
-  },
-  {
-    title: "Клієнтська спрямованість",
-    text: "Ми слухаємо своїх клієнтів і розуміємо їх потреби. Наш підхід базується на глибокому аналізі та вивченні цільової аудиторії.",
-    image: "adv5.svg",
-  },
-  {
-    title: "Постійна підтримка",
-    text: "Наша команда знаходиться поруч з вами на кожному етапі проекту. Ми готові надавати консультації, відповіді на питання та технічну підтримку.",
-    image: "adv6.svg",
-  },
-];
-</script>
+// const client = useSupabaseClient();
+const user = useSupabaseUser();
+const authClient = useSupabaseAuthClient();
+// const { data: features } = await useAsyncData("features", async () => {
+//   const { data } = await client.from("dream_team_features").select("*");
+//   return data;
+// });
 
+const login = async () => {
+  let { data, error } = await authClient.auth.signInWithPassword({
+    email: "dmitry.conquer@gmail.com",
+    password: "coffecoffe",
+  });
+  if (data) {
+    alert("Success");
+  }
+  if (error) {
+    alert("Error!");
+  }
+};
+const out = async () => {
+  let { error } = await authClient.auth.signOut();
+};
+
+const { data: features } = await useFetch("/api/features", {
+  transform: response => {
+    return response.data;
+  },
+});
+console.log(features.value);
+</script>

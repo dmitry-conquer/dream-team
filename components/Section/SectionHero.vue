@@ -11,7 +11,7 @@
       <a href="#features" class="btn btn-muted px-[2rem] py-[0.75rem]">Ознайомитися</a>
     </div>
     <a href="https://github.com/dmitry-conquer" target="_blank" class="relative block md:px-4 lg:12 xl:32">
-      <img src="hero-img.jpg" alt="" class="aspect-video w-full" />
+      <img src="~/assets/images/hero-img.jpg" alt="" class="aspect-video w-full" />
       <div
         class="top-1/2 left-1/2 absolute grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-content-center rounded-full bg-white">
         <IconPlay class="h-5 w-5 fill-primary stroke-none" />
