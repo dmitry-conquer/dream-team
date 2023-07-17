@@ -13,6 +13,10 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    SUPABASE_KEY: process.env.SUPABASE_KEY,
+    SUPABASE_URL: process.env.SUPABASE_URL,
+  },
   spaLoadingTemplate: false,
   devtools: { enabled: false },
   modules: ["@nuxtjs/tailwindcss", "nuxt-swiper", "@nuxtjs/supabase"],
