@@ -2,7 +2,7 @@
   <section class="container py-20" id="overviews">
     <div class="mx-auto mb-16 max-w-[48rem]">
       <div class="section-label"><span>Клієнт - перш за все</span></div>
-      <h2 class="mb-4 lg:mb-11 text-center">Що про нас говорять?</h2>
+      <h2 class="mb-4 text-center lg:mb-11">Що про нас говорять?</h2>
       <p class="text-center leading-normal lg:text-xl">
         Ми пишаємося своїми позитивними відгуками та впевнені, що вони будуть джерелом натхнення для вас. Ми постійно
         прагнемо до найвищої якості та задоволення клієнтів, і відгуки від наших задоволених клієнтів свідчать про це.
@@ -38,6 +38,13 @@
 </template>
 
 <script setup>
+const { data: overviews } = await useFetch("/api/overviews", {
+  transform: response => {
+    return response.data;
+  },
+});
+
+
 const breakpointsOptions = {
   320: {
     slidesPerView: 1.2,
@@ -56,39 +63,6 @@ const breakpointsOptions = {
     spaceBetween: 20,
   },
 };
-
-const overviews = [
-  {
-    avatar: "https://xsgames.co/randomusers/assets/avatars/male/9.jpg",
-    name: "Іван Ковальчук",
-    text: "Команда твоєї мрії - це найкращі фахівці у сфері веб-розробки! Їхній творчий підхід та уважний підхід до деталей зробили мій сайт по-справжньому унікальним.",
-    role: "Підприємець",
-  },
-  {
-    avatar: "https://xsgames.co/randomusers/assets/avatars/female/9.jpg",
-    name: "Олена Шевченко",
-    text: "Дякую 'Команді твоєї мрії' за швидку та професійну розробку мого мобільного додатку. Їхня експертиза та підтримка від початку до кінця були вражаючими.",
-    role: "UX Board",
-  },
-  {
-    avatar: "https://xsgames.co/randomusers/assets/avatars/male/3.jpg",
-    name: "Петро Волошин",
-    text: "Веб-дизайн, розробка, оптимізація - 'Команда твоєї мрії' вміє все! Мій сайт став втіленням моїх найсміливіших ідей та виглядає фантастично!",
-    role: "Адвокат",
-  },
-  {
-    avatar: "https://xsgames.co/randomusers/assets/avatars/female/3.jpg",
-    name: "Марія Сидоренко",
-    text: "Неймовірна команда професіоналів! Їхній бекенд розробка вирішила всі мої технічні завдання і забезпечила плавну та безперебійну роботу мого веб-сайту.",
-    role: "Директор",
-  },
-  {
-    avatar: "https://xsgames.co/randomusers/assets/avatars/male/6.jpg",
-    name: "Андрій Петренко",
-    text: "Я дуже задоволений веб-оптимізацією, яку зробила 'Команда твоєї мрії'. Мій сайт значно покращився у рейтингах пошукових систем, що позитивно впливає на бізнес.",
-    role: "Дизайнер",
-  },
-];
 </script>
 
 <style lang="scss"></style>

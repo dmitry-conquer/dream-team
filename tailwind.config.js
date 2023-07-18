@@ -18,19 +18,7 @@ export default {
       lg: "992px",
       xl: "1110px",
     },
-    colors: {
-      primary: {
-        DEFAULT: "#5D5DFF",
-        dark: "#4B4ACF",
-      },
-      dark: "#151719",
-      white: "#fff",
-      gray: {
-        100: "#d9e3ea",
-        200: "#9BA9B4",
-        300: "#33363A",
-      },
-    },
+ 
     fontSize: {
       sm: "0.8rem",
       base: "1rem",
@@ -47,6 +35,20 @@ export default {
     extend: {
       padding: {
         section: "4rem",
+      },
+      colors: {
+        primary: {
+          DEFAULT: "#5D5DFF",
+          dark: "#4B4ACF",
+        },
+        dark: "#151719",
+        white: "#fff",
+        gray: {
+          100: "#d9e3ea",
+          150: "#f3f4f6",
+          200: "#9BA9B4",
+          300: "#33363A",
+        },
       },
     },
   },

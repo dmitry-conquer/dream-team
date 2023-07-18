@@ -24,36 +24,19 @@
             </li>
           </ul>
         </div>
-        <img :src="`~/assets/images/${s.image}`" :alt="s.title" class="md:w-1/2" />
+        <img :src="s.image" :alt="s.title" class="md:w-1/2" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const services = [
-  {
-    slogan: "Unleash Your Online Presence",
-    title: "Веб-дизайн та розробка",
-    text: "Створення привабливого та ефективного дизайну для вашої інтернет-сторінки.",
-    list: ["Веб-дизайн", "Фронтенд розробка", "Бекенд розробка", "Адаптивний дизайн"],
-    image: "img1.jpg",
+const { data: services } = await useFetch("/api/services", {
+  transform: response => {
+    return response.data;
   },
-  {
-    slogan: "Connect, Engage, Mobile Success",
-    title: "Мобільна розробка та інтеграція",
-    text: "Ми фокусуємося на розробці мобільних додатків та інтеграції вашого веб-сайту з популярними платформами соціальних медіа.",
-    list: ["Мобільна розробка", "Інтеграція соціальних медіа"],
-    image: "img1.jpg",
-  },
-  {
-    slogan: "Optimize. Engage. Thrive",
-    title: "Оптимізація та підтримка",
-    text: "Ми забезпечуємо оптимізацію вашого веб-сайту, підтримку контенту та технічну допомогу, а також аналітику та відстеження для постійного покращення результатів.",
-    list: ["Веб-оптимізація", "Контент-менеджмент", "Аналітика та відстеження"],
-    image: "img1.jpg",
-  },
-];
+});
+console.log(services.value);
 </script>
 
 <style lang="scss"></style>
