@@ -1,25 +1,25 @@
 <template>
-  <div class="relative grid min-h-screen grid-cols-[60px_1fr]">
-    <aside class="pt-10">
+  <div class="relative grid min-h-screen grid-cols-[50px_1fr] bg-admin-gray-700">
+    <aside class="pt-10 border-r border-admin-gray-400">
       <nav>
-        <ul class="flex flex-col items-center gap-y-5">
+        <ul class="flex flex-col items-center gap-y-3">
           <li v-for="item in navagation" :key="item.name">
-            <NuxtLink :to="item.link" class="grid h-10 w-10 place-content-center rounded-xl p-2">
-              <component :is="item.icon" class="h-5 w-5" />
+            <NuxtLink :to="item.link" class="grid h-9 w-9 place-content-center rounded-xl p-2">
+              <component :is="item.icon" class="h-5 w-5 text-admin-gray-300" />
             </NuxtLink>
           </li>
         </ul>
       </nav>
     </aside>
-    <div class="bg-gray-150 p-4">
-      <h1 class="text-left text-2xl text-gray-300 pb-4">Редагування контенту</h1>
-      <NuxtPage />
+    <div class="">
+      <h1 class="text-left text-2xl text-admin-gray-100 p-4 border-admin-gray-400 border-b">Dashboard</h1>
+      <NuxtPage  class="p-4"/>
     </div>
   </div>
 </template>
 
 <script setup>
-import IconEdit from "~/components/Icon/IconEdit.vue";
+import IconContent from "~/components/Icon/IconContent.vue";
 import IconLock from "~/components/Icon/IconLock.vue";
 
 definePageMeta({
@@ -30,7 +30,7 @@ const navagation = [
   {
     name: "edit",
     link: "/admin/edit",
-    icon: IconEdit,
+    icon: IconContent,
   },
   {
     name: "auth",
@@ -42,9 +42,9 @@ const navagation = [
 
 <style lang="scss">
 .router-link-active {
-  @apply bg-gray-300;
+  @apply bg-admin-gray-400;
   svg path {
-    @apply stroke-primary;
+    @apply text-admin-gray-200;
   }
 }
 </style>

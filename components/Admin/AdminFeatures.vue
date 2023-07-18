@@ -1,49 +1,48 @@
 <template>
   <div>
-    <h2 class="pb-4 text-left text-xl text-gray-300">Переваги</h2>
-    <div class="grid max-w-3xl gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <div
+    <h2 class="pb-4 text-left text-xl font-medium text-admin-gray-200">Переваги</h2>
+    <div class="grid max-w-3xl auto-rows-fr gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <AdminItem
         v-for="f in features"
-        :key="f.title"
-        class="group relative flex flex-col items-center rounded-md border p-4 text-center">
-        <button @click="remove(f.id)" class="absolute right-1 top-1" type="button" aria-label="Редагувати">
-          <IconTrash class="hidden h-5 w-5 text-red-700 group-hover:block" />
-        </button>
-        <h3 class="mb-2 text-base font-semibold leading-tight text-gray-300">{{ f.title }}</h3>
-        {{ f.id }}
-        <p class="text-sm leading-relaxed text-gray-200">{{ f.text }}</p>
-      </div>
-      <button
-        @click="isOpen = true"
-        class="flex justify-center rounded-md border p-4 text-center text-3xl text-gray-300"
-        type="button"
-        aria-label="Редагувати">
+        :key="f.id"
+        :item="f"
+        table="dream_team_features"
+        @confirm="insert"
+        @remove="remove" />
+      <AdminButton
+        button-type="add-item"
+        @click="isOpen = true">
         +
-      </button>
-      <BaseModal :isOpen="isOpen" @confirm="insert" @close-modal="isOpen = false">
-        <div class="grid gap-y-3">
-          <input
-            v-model="title"
-            type="text"
-            placeholder="Заголовок"
-            class="rounded-sm border px-3 py-4 text-gray-300" />
-          <textarea
-            v-model="desctiprion"
-            placeholder="Опис"
-            class="min-h-[150px] resize-none rounded-sm border px-3 py-4 text-gray-300"></textarea>
-        </div>
-      </BaseModal>
+      </AdminButton>
     </div>
+    <AdminModalForm
+      v-if="isOpen"
+      @close-modal="isOpen = false"
+      @confirm="insert">
+      <div class="grid gap-y-3">
+        <h2 class="modal-title">Додати елемент</h2>
+        <input
+          v-model="title"
+          type="text"
+          placeholder="Заголовок"
+          class="input" />
+        <textarea
+          v-model="desctiprion"
+          placeholder="Опис"
+          class="input min-h-[150px] resize-none"></textarea>
+      </div>
+    </AdminModalForm>
   </div>
 </template>
 
 <script setup>
 import { RealtimeChannel } from "@supabase/supabase-js";
 let realtimeChannel = RealtimeChannel;
+const { toast, toastOptions } = useToast();
 const client = useSupabaseClient();
-const isOpen = ref(false);
 const title = ref("");
 const desctiprion = ref("");
+const isOpen = ref(false);
 
 /*
     insert data
@@ -57,6 +56,10 @@ const insert = async () => {
       image: "image here",
     },
   });
+  isOpen.value = false;
+  title.value = "";
+  desctiprion.value = "";
+  toast.success("Об'єкт створено", toastOptions);
 };
 
 /*
@@ -68,13 +71,15 @@ async function remove(id) {
     method: "DELETE",
     params: { id },
   });
+  toast.success("Об'єкт видалено", toastOptions);
 }
 
 /*
   get data
 */
 
-const { data: features, refresh } = await useFetch("/api/features", {
+const { data: features, refresh } = await useFetch(`/api/table/dream_team_features/`, {
+  method: 'GET',
   transform: response => {
     return response.data;
   },

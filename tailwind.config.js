@@ -18,7 +18,7 @@ export default {
       lg: "992px",
       xl: "1110px",
     },
- 
+
     fontSize: {
       sm: "0.8rem",
       base: "1rem",
@@ -48,6 +48,20 @@ export default {
           150: "#f3f4f6",
           200: "#9BA9B4",
           300: "#33363A",
+        },
+        "admin-brand": {
+          100: "#3fcf8e",
+          200: "#30a46c",
+          300: "#0c1f17",
+        },
+        "admin-gray": {
+          100: "#ededed", // text primary
+          200: "#bbbbbb", // text muted
+          300: "#707070", // text muted dark
+          400: "#343434",
+          500: "#2e2e2e",
+          600: "#232323", // secondary bg
+          700: "#1c1c1c", // main bg
         },
       },
     },
