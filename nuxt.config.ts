@@ -5,8 +5,8 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
       title: "Dream Team",
       meta: [
-        { name: "description", content: "Усі фільми в одному місці." },
-        { name: "keywords", content: "movies, conquer, films" },
+        { name: "description", content: "Dream Team web site." },
+        { name: "keywords", content: "Dream, Team, site" },
         { name: "robots", content: "noindex, nofollow" },
         { name: "language", content: "English" },
         { name: "author", content: "Dmitry Conquer" },
