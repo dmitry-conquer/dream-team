@@ -42,13 +42,7 @@
               name="text"
               placeholder="Пароль"
               aria-label="Пароль" />
-            <div class="mt-5 flex flex-col sm:flex-row-reverse gap-4">
-              <AdminButton
-                type="submit"
-                class="w-full"
-                button-type="success"
-                >Вхід</AdminButton
-              >
+            <div class="mt-5 gap-4">
               <AdminButton
                 @click="out"
                 type="button"
@@ -85,7 +79,7 @@ const login = async () => {
     if (data.user) {
       toast.success("Успішний вхід!", toastOptions);
       setTimeout(() => {
-      router.push("/admin/edit");
+        router.push("/admin/edit");
       }, 1000);
       console.log(data);
     }
