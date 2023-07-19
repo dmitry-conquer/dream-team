@@ -18,9 +18,9 @@
       :autoplay="{
         delay: 3000,
         disableOnInteraction: true,
-      }">
-      <SwiperSlide v-for="(o, i) in overviews" :key="i" class="h-full">
-        <article class="flex h-full flex-col items-start bg-gray-300 px-6 pt-6">
+      }" class="h-auto sm:h-[320px]">
+      <SwiperSlide v-for="(o, i) in overviews" :key="i" class="h-auto ">
+        <article class="flex h-full flex-col items-start bg-gray-300 p-6">
           <div class="relative mb-4">
             <IconQuote class="absolute -right-3 -top-1 h-6 w-6" />
             <img :src="o.avatar" :alt="o.name" class="h-12 w-12 rounded-full" />
@@ -65,4 +65,8 @@ const breakpointsOptions = {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.swiper-wrapper {
+  @apply items-center
+}
+</style>

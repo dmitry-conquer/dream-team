@@ -4,15 +4,15 @@
     <div class="min-w-[500px] rounded bg-admin-gray-600 p-6 shadow-lg">
       <form @submit.prevent="emit('confirm')">
         <slot />
-        <div class="flex justify-between">
+        <div class="flex justify-between mt-4">
           <AdminButton
-            button-type="default"
+            button-type="success"
             type="submit"
-            >Підтвердити</AdminButton
+            >Додати</AdminButton
           >
           <AdminButton
             @click="emit('close-modal')"
-            button-type="muted"
+            button-type="default"
             type="button"
             >Закрити</AdminButton
           >

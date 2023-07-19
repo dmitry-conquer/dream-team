@@ -6,13 +6,13 @@
         <div class="flex justify-between mt-2">
           <AdminButton
             @click="emit('confirm')"
-            button-type="default"
+            button-type="danger"
             type="submit"
-            >Підтвердити</AdminButton
+            >Видалити</AdminButton
           >
           <AdminButton
             @click="emit('close-modal')"
-            button-type="muted"
+            button-type="default"
             type="button"
             >Закрити</AdminButton
           >
