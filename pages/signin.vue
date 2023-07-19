@@ -44,11 +44,10 @@
               aria-label="Пароль" />
             <div class="mt-5 gap-4">
               <AdminButton
-                @click="out"
-                type="button"
+                type="submit"
                 class="w-full"
-                button-type="default"
-                >Вихід</AdminButton
+                button-type="success"
+                >Вхід</AdminButton
               >
             </div>
           </div>
@@ -79,7 +78,7 @@ const login = async () => {
     if (data.user) {
       toast.success("Успішний вхід!", toastOptions);
       setTimeout(() => {
-        router.push("/admin/edit");
+      router.push("/admin/edit");
       }, 1000);
       console.log(data);
     }
@@ -89,9 +88,6 @@ const login = async () => {
   }
 };
 
-const out = () => {
-  authClient.auth.signOut();
-};
 </script>
 
 <style lang="scss"></style>
